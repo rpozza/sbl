@@ -150,6 +150,7 @@ static char * sector_start_adress[]    = {
     (char *)FLASH_SECTOR_28,
     (char *)FLASH_SECTOR_29
 };
+
 #endif
 
 /**    Error code by IAP routine
@@ -257,7 +258,7 @@ public:
      *  @param    size           Number of bytes to be written. Should be 256 | 512 | 1024 | 4096.
      *  @return   error code: CMD_SUCCESS | SRC_ADDR_ERROR (Address not a word boundary) | DST_ADDR_ERROR (Address not on correct boundary) | SRC_ADDR_NOT_MAPPED | DST_ADDR_NOT_MAPPED | COUNT_ERROR (Byte count is not 256 | 512 | 1024 | 4096) | SECTOR_NOT_PREPARED_FOR_WRITE_OPERATION | BUSY
      */
-    int write( char *source_addr, char *target_addr, int size );
+    int write( char * source_addr, unsigned int target_addr, int size );
 
     /** Compare <address1> <address2> <no of bytes>
      *
@@ -266,7 +267,7 @@ public:
      *  @param    size         Number of bytes to be compared; should be a multiple of 4.
      *  @return   error code: CMD_SUCCESS | COMPARE_ERROR | COUNT_ERROR (Byte count is not a multiple of 4) | ADDR_ERROR | ADDR_NOT_MAPPED
      */
-    int compare( char *source_addr, char *target_addr, int size );
+    int compare( char * source_addr, unsigned int target_addr, int size );
 
     /** Read Boot code version number
      *

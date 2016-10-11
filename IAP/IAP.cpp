@@ -127,11 +127,11 @@ int IAP::prepare( int start, int end )
     return ( (int)IAP_result[ 0 ] );
 }
 
-int IAP::write( char *source_addr, char *target_addr, int size )
+int IAP::write( char * source_addr, unsigned int target_addr, int size )
 {
     IAP_command[ 0 ]    = IAPCommand_Copy_RAM_to_Flash;
-    IAP_command[ 1 ]    = (unsigned int)target_addr;    //  Destination flash address where data bytes are to be written. This address should be a 256 byte boundary.
-    IAP_command[ 2 ]    = (unsigned int)source_addr;    //  Source RAM address from which data bytes are to be read. This address should be a word boundary.
+    IAP_command[ 1 ]    = target_addr;    				//  Destination flash address where data bytes are to be written. This address should be a 256 byte boundary.
+    IAP_command[ 2 ]    = (unsigned int) source_addr;   //  Source RAM address from which data bytes are to be read. This address should be a word boundary.
     IAP_command[ 3 ]    = size;                         //  Number of bytes to be written. Should be 256 | 512 | 1024 | 4096.
     IAP_command[ 4 ]    = cclk_kHz;                     //  CPU Clock Frequency (CCLK) in kHz.
 
@@ -140,11 +140,11 @@ int IAP::write( char *source_addr, char *target_addr, int size )
     return ( (int)IAP_result[ 0 ] );
 }
 
-int IAP::compare( char *source_addr, char *target_addr, int size )
+int IAP::compare( char * source_addr, unsigned int target_addr, int size )
 {
     IAP_command[ 0 ]    = IAPCommand_Compare;
-    IAP_command[ 1 ]    = (unsigned int)target_addr;    //  Starting flash or RAM address of data bytes to be compared. This address should be a word boundary.
-    IAP_command[ 2 ]    = (unsigned int)source_addr;    //  Starting flash or RAM address of data bytes to be compared. This address should be a word boundary.
+    IAP_command[ 1 ]    = target_addr;   				//  Starting flash or RAM address of data bytes to be compared. This address should be a word boundary.
+    IAP_command[ 2 ]    = (unsigned int) source_addr;   //  Starting flash or RAM address of data bytes to be compared. This address should be a word boundary.
     IAP_command[ 3 ]    = size;                         //  Number of bytes to be compared; should be a multiple of 4.
 
     iap_entry( IAP_command, IAP_result );
