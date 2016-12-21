@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Authors:
+ * Author:
  * Riccardo Pozza <r.pozza@surrey.ac.uk>
  */
 
@@ -85,7 +85,7 @@ int main(void) {
 	}
 	// validextrom?
 	if (validextrom){
-		printf("valid rxternal rom, magic number: %c%c%c%c!\r\n", (char) fwid[0], (char) fwid[1], (char) fwid[2], (char) fwid[3]);
+		printf("valid external rom, magic number: %c%c%c%c!\r\n", (char) fwid[0], (char) fwid[1], (char) fwid[2], (char) fwid[3]);
 		page_address = EXT_STOP_ADDR;
 		ExtFlash->ReadDataFromAddress(fwid, page_address, EXT_STOP_ADDR_LEN);
 		for (i=0;i<EXT_STOP_ADDR_LEN;i++){
@@ -96,7 +96,7 @@ int main(void) {
 		printf("stop address found: %X!\r\n", stop_address);
 	}
 	else{
-		printf("non valid rxternal rom: %02x%02x%02x%02x!\r\n", fwid[0],fwid[1],fwid[2],fwid[3]);
+		printf("non valid external rom: %02x%02x%02x%02x!\r\n", fwid[0],fwid[1],fwid[2],fwid[3]);
 	}
 
 	printf("---------------------- INTERNAL FLASH -------------------------\r\n");
@@ -163,11 +163,9 @@ int main(void) {
     		}
     	}
     	printf("----------------------- FINALIZING ! --------------------------\r\n");
-    	for (i=0;i<EXT_FLASH_ID_ADDR_LEN;i++){
-			fwid[i] = 0xFF;
-		}
-    	page_address = EXT_FLASH_ID_ADDR;
-    	ExtFlash->ProgramFromAddress(fwid, page_address, EXT_FLASH_ID_ADDR_LEN);
+
+    	// erasing external flash
+    	ExtFlash->BulkErase();
     	printf("------------------- UPDATED SUCCESSFULLY!! --------------------\r\n");
     	printf("boot completed in %f m\r\n",(timings.read()/60));
     }
