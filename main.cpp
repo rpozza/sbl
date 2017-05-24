@@ -57,7 +57,16 @@ int main(void) {
 	int stop_address = 0;
 	bool skip = false;
 	uint8_t * ptr_page;
+	PwmOut * Lred = NULL;
 	Timer timings;
+
+#if defined(TARGET_ARCH_PRO)
+	if (Lred == NULL){
+		Lred = new PwmOut(P2_5);
+	}
+	float outputvalue = 1.0f;
+	Lred->write(outputvalue);
+#endif
 
 	timings.start();
 	printf("----------------------- BOOT LOADER ---------------------------\r\n");
