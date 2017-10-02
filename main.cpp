@@ -56,7 +56,7 @@ int main(void) {
 	char stop_addr[EXT_STOP_ADDR_LEN+1];
 	int stop_address = 0;
 	bool skip = false;
-	uint8_t * ptr_page;
+//	uint8_t * ptr_page;
 	PwmOut * Lred = NULL;
 	Timer timings;
 
@@ -77,7 +77,7 @@ int main(void) {
 		printf(" %08X", *(serial_number + i));
 	}
 	printf("\r\n");
-	printf("cpu running @ %dkHz\r\n", SystemCoreClock/1000);
+	printf("cpu running @ %lukHz\r\n", SystemCoreClock/1000);
     printf("boot code vers. = 0x%08X\r\r\n", iap.read_BootVer());
 
     printf("----------------------- VALID ROM?? ---------------------------\r\n");
@@ -140,7 +140,7 @@ int main(void) {
     			page_address = sector_address + (j * PAGE_SIZE);
     			printf("sector (%d | %X), page (%d | %X)\r\n",i,sector_address,j, page_address);
     			ExtFlash->ReadDataFromAddress(fwid,page_address, PAGE_SIZE);
-    			ptr_page = (uint8_t *) page_address;
+//    			ptr_page = (uint8_t *) page_address;
 //    			printf("OLD DATA:\r\n");
 //    			for (k=0;k<PAGE_SIZE;k++){
 //    				printf("%02X ", ptr_page[k]);
@@ -154,7 +154,7 @@ int main(void) {
 //    			printf("\r\n");
     			// write page
     			iap.prepare(i, i);
-    			printf("prepare from ram %X to flash %X \r\n", mem, page_address);
+    			printf("prepare from ram %p to flash %X \r\n", (void*) mem, page_address);
     			ret_val = iap.write  (mem, page_address,PAGE_SIZE);
     			printf("copied: Flash(0x%08X) for %d bytes. (result=0x%08X) ", page_address, PAGE_SIZE, ret_val);
     			ret_val = iap.compare(mem, page_address,PAGE_SIZE);
