@@ -35,8 +35,8 @@
 
 #if defined(TARGET_ARCH_PRO)
 
-#define     USER_FLASH_AREA_START   FLASH_SECTOR_29
-#define     USER_FLASH_AREA_SIZE    (FLASH_SECTOR_SIZE_16_TO_29 * 1)
+#define     USER_FLASH_AREA_START   IAP_FLASH_SECTOR_29
+#define     USER_FLASH_AREA_SIZE    (IAP_FLASH_SECTOR_SIZE_16_TO_29 * 1)
 
 /*
  *  memory map information is available in next URL also.
@@ -85,38 +85,38 @@
  *      Sector29:    0x00078000 - 0x0007FFFF        32K
  */
 
-#define     FLASH_SECTOR_0       0x00000000
-#define     FLASH_SECTOR_1       0x00001000
-#define     FLASH_SECTOR_2       0x00002000
-#define     FLASH_SECTOR_3       0x00003000
-#define     FLASH_SECTOR_4       0x00004000
-#define     FLASH_SECTOR_5       0x00005000
-#define     FLASH_SECTOR_6       0x00006000
-#define     FLASH_SECTOR_7       0x00007000
-#define     FLASH_SECTOR_8       0x00008000
-#define     FLASH_SECTOR_9       0x00009000
-#define     FLASH_SECTOR_10      0x0000A000
-#define     FLASH_SECTOR_11      0x0000B000
-#define     FLASH_SECTOR_12      0x0000C000
-#define     FLASH_SECTOR_13      0x0000D000
-#define     FLASH_SECTOR_14      0x0000E000
-#define     FLASH_SECTOR_15      0x0000F000
-#define     FLASH_SECTOR_16      0x00010000
-#define     FLASH_SECTOR_17      0x00018000
-#define     FLASH_SECTOR_18      0x00020000
-#define     FLASH_SECTOR_19      0x00028000
-#define     FLASH_SECTOR_20      0x00030000
-#define     FLASH_SECTOR_21      0x00038000
-#define     FLASH_SECTOR_22      0x00040000
-#define     FLASH_SECTOR_23      0x00048000
-#define     FLASH_SECTOR_24      0x00050000
-#define     FLASH_SECTOR_25      0x00058000
-#define     FLASH_SECTOR_26      0x00060000
-#define     FLASH_SECTOR_27      0x00068000
-#define     FLASH_SECTOR_28      0x00070000
-#define     FLASH_SECTOR_29      0x00078000
-#define     FLASH_SECTOR_SIZE_0_TO_15    ( 4 * 1024)
-#define     FLASH_SECTOR_SIZE_16_TO_29   (32 * 1024)
+#define     IAP_FLASH_SECTOR_0       0x00000000
+#define     IAP_FLASH_SECTOR_1       0x00001000
+#define     IAP_FLASH_SECTOR_2       0x00002000
+#define     IAP_FLASH_SECTOR_3       0x00003000
+#define     IAP_FLASH_SECTOR_4       0x00004000
+#define     IAP_FLASH_SECTOR_5       0x00005000
+#define     IAP_FLASH_SECTOR_6       0x00006000
+#define     IAP_FLASH_SECTOR_7       0x00007000
+#define     IAP_FLASH_SECTOR_8       0x00008000
+#define     IAP_FLASH_SECTOR_9       0x00009000
+#define     IAP_FLASH_SECTOR_10      0x0000A000
+#define     IAP_FLASH_SECTOR_11      0x0000B000
+#define     IAP_FLASH_SECTOR_12      0x0000C000
+#define     IAP_FLASH_SECTOR_13      0x0000D000
+#define     IAP_FLASH_SECTOR_14      0x0000E000
+#define     IAP_FLASH_SECTOR_15      0x0000F000
+#define     IAP_FLASH_SECTOR_16      0x00010000
+#define     IAP_FLASH_SECTOR_17      0x00018000
+#define     IAP_FLASH_SECTOR_18      0x00020000
+#define     IAP_FLASH_SECTOR_19      0x00028000
+#define     IAP_FLASH_SECTOR_20      0x00030000
+#define     IAP_FLASH_SECTOR_21      0x00038000
+#define     IAP_FLASH_SECTOR_22      0x00040000
+#define     IAP_FLASH_SECTOR_23      0x00048000
+#define     IAP_FLASH_SECTOR_24      0x00050000
+#define     IAP_FLASH_SECTOR_25      0x00058000
+#define     IAP_FLASH_SECTOR_26      0x00060000
+#define     IAP_FLASH_SECTOR_27      0x00068000
+#define     IAP_FLASH_SECTOR_28      0x00070000
+#define     IAP_FLASH_SECTOR_29      0x00078000
+#define     IAP_FLASH_SECTOR_SIZE_0_TO_15    ( 4 * 1024)
+#define     IAP_FLASH_SECTOR_SIZE_16_TO_29   (32 * 1024)
 
 //static char * sector_start_adress[]    = {
 //    (char *)FLASH_SECTOR_0,
