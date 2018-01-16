@@ -1,5 +1,5 @@
 # sbl
-Secondary Boot Loader for LWM2M based on external SPI NOR Flash and mbed SDK HAL
+Secondary Boot Loader for LWM2M Client, implementing FOTA via HTTP
 
 NB: USER APPLICATION MUST BE DOWNLOADED AT STARTING ADDRESS/ENDING ADDRESS OF SBL
 
