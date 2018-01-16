@@ -279,13 +279,13 @@ bool download_build(void){
 		range.rangeReset(buf,0,12);
 		while(http->get(build_url, &range) != HTTP_OK);
 		char *pchk = strchr(buf,':');
-		sscanf(pchk+1, "%d", &checksum_verify);
+		sscanf(pchk+1, "%X", &checksum_verify);
 		if (checksum_verify == checksum){
-			printf("matches the one stored remotely!\r\n");
+			printf("matches the one stored remotely: %08X!\r\n", checksum_verify);
 			retval = true;
 		}
 		else {
-			printf("don't match the one stored remotely! Going down for reboot!\r\n");
+			printf("doesn't match the one stored remotely: %08X! Going down for reboot!\r\n", checksum_verify);
 			retval = false;
 		}
 	}
